@@ -1,0 +1,212 @@
+:root {
+    --primary: 59 130 246; /* Blue-500 */
+    --secondary: 16 185 129; /* Emerald-500 */
+    --accent: 245 158 11; /* Amber-500 */
+    --dark: 15 23 42; /* Slate-900 */
+    --light: 248 250 252; /* Slate-50 */
+}
+
+.theme-dark {
+    --text: 248 250 252;
+    --bg: 15 23 42;
+    --surface: 30 41 59;
+    --border: 51 65 85;
+}
+
+.theme-light {
+    --text: 15 23 42;
+    --bg: 248 250 252;
+    --surface: 255 255 255;
+    --border: 226 232 240;
+}
+
+body {
+    background-color: rgb(var(--bg));
+    color: rgb(var(--text));
+    transition: background-color 0.3s, color 0.3s;
+    scroll-behavior: smooth;
+}
+
+.btn-primary {
+    background-color: rgb(var(--primary));
+    color: white;
+    transition: all 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: rgb(var(--primary) / 0.9);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    border: 2px solid rgb(var(--primary));
+    color: rgb(var(--primary));
+    transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: rgb(var(--primary));
+    color: white;
+}
+
+.glassmorphism {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-link {
+    position: relative;
+    padding: 4px 0;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: rgb(var(--primary));
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+}
+
+.blog-card {
+    background: rgb(var(--surface));
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+}
+
+.footer {
+    background: rgb(var(--surface));
+    color: rgb(var(--text));
+    border-top: 1px solid rgb(var(--border));
+}
+
+.footer-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.footer-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background: rgb(var(--primary));
+    transition: width 0.3s ease;
+}
+
+.footer-link:hover::after {
+    width: 100%;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(var(--primary), 0.1);
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background: rgb(var(--primary));
+    color: white !important;
+    transform: translateY(-3px);
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    background: rgb(var(--primary));
+    color: white;
+    border-radius: 50%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(var(--primary), 0.3);
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgb(var(--surface));
+    border: 1px solid rgb(var(--border));
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-link {
+    display: block;
+    padding: 8px 16px;
+    color: rgb(var(--text));
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-link:hover {
+    background-color: rgba(var(--primary), 0.1);
+}
+.swiper-pagination-bullet {
+    background: rgb(var(--text)) !important;
+    opacity: 0.5 !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: rgb(var(--primary)) !important;
+    opacity: 1 !important;
+}
+.impact-number {
+    font-size: 3rem;
+    font-weight: 700;
+    transition: all 0.5s ease;
+}

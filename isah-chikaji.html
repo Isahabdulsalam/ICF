@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isah Chikaji Foundation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="">
+</head>
+<body class="theme-light font-sans">
+    <!-- Header -->
+    <header class="fixed w-full z-50 glassmorphism">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="container mx-auto px-4 lg:px-8 py-4 flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <img src="images/ICF.jpg" alt="Logo" class="h-12 w-12 rounded-full">
+                    <span class="text-2xl font-bold text-primary">Isah Chikaji Foundation</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex gap-8 items-center">
+                    <a href="#home" class="nav-link hover:text-primary transition-colors">Home</a>
+                    <div class="dropdown">
+                        <a href="#about" class="nav-link hover:text-primary transition-colors">About</a>
+                        <div class="dropdown-content">
+                            <a href="#mission" class="dropdown-link">Mission</a>
+                            <a href="#vision" class="dropdown-link">Vision</a>
+                            <a href="#ceo" class="dropdown-link">CEO</a>
+                        </div>
+                    </div>
+                    <a href="#gallery" class="nav-link hover:text-primary transition-colors">Gallery</a>
+                    <a href="#blog" class="nav-link hover:text-primary transition-colors">Blog</a>
+                    <a href="#contact" class="btn-primary px-6 py-2 rounded-full">Learn more</a>
+                </div>
+    
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-primary">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu md:hidden absolute top-full right-0 w-64 bg-white shadow-lg rounded-bl-lg">
+                <div class="p-4 space-y-4">
+                    <a href="#home" class="nav-link hover:text-primary transition-colors">Home</a>
+                    <div class="dropdown">
+                        <a href="#about" class="nav-link hover:text-primary transition-colors">About</a>
+                        <div class="dropdown-content">
+                            <a href="#mission" class="dropdown-link">Mission</a>
+                            <a href="#vision" class="dropdown-link">Vision</a>
+                            <a href="#ceo" class="dropdown-link">CEO</a>
+                        </div>
+                    </div>
+                    <a href="#impact" class="nav-link hover:text-primary hover:text-primary transition-colors">Impact</a>
+                    <a href="#gallery" class="nav-link hover:text-primary transition-colors">Gallery</a>
+                    <a href="#blog" class="nav-link hover:text-primary transition-colors">Blog</a>
+                    <a href="#contact" class="btn-primary px-6 py-2 rounded-full">Learn more</a>
+                </div>
+            </div>
+            <button id="theme-toggle" class="p-2 rounded-lg hover:bg-surface">
+                <i class="fas fa-moon text-xl"></i>
+            </button>
+        </nav>
+    </header>
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6 items-center text-center">
+            <div class="max-w-4xl" data-aos="fade-up">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                    Empowering Communities,
+                    <span class="text-primary">Transforming Lives</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-text/80 mb-8">
+                    Join us in creating sustainable change through education, healthcare, and economic empowerment initiatives.
+                </p>
+                <div class="flex gap-4 flex items-center justify-center">
+                    <a href="#donate" class="btn-primary px-8 py-3 rounded-full">Donate Now</a>
+                    <a href="#about" class="btn-secondary px-8 py-3 rounded-full">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-surface">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">About Us</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="rounded-lg overflow-hidden shadow-lg" data-aos="fade-right">
+                    <img src="images/ICF.jpg" alt="About Us" class="w-full h-auto object-cover">
+                </div>
+                <div class="space-y-6" data-aos="fade-left">
+                    <h3 class="text-3xl font-bold">Our Story</h3>
+                    <p class="text-lg text-text/80">
+                        The Isah Chikaji Foundation was founded in 2023 with a vision to create sustainable change in underserved communities. Our focus is on education, healthcare, and economic empowerment.
+                    </p>
+                    <p class="text-lg text-text/80">
+                        Over the years, we have impacted thousands of lives through our programs and initiatives. We believe in the power of community and collaboration to drive meaningful change.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section id="mission" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">Our Mission & Vision</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="bg-surface p-8 rounded-lg shadow-lg" data-aos="fade-right">
+                    <h3 class="text-2xl font-bold mb-4">Mission</h3>
+                    <p class="text-lg text-text/80">
+                        To empower underserved communities through education, healthcare, and economic opportunities, creating a foundation for sustainable development.
+                    </p>
+                </div>
+                <div class="bg-surface p-8 rounded-lg shadow-lg" data-aos="fade-left">
+                    <h3 class="text-2xl font-bold mb-4">Vision</h3>
+                    <p class="text-lg text-text/80">
+                        A world where every individual has access to quality education, healthcare, and opportunities to thrive, regardless of their background.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-surface">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">Our Gallery</h2>
+            <div class="swiper gallerySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" data-aos="zoom-in">
+                        <img src="images/G1.jpg" alt="Event 1" class="w-full h-64 object-cover rounded-lg mx-2">
+                    </div>
+                    <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="images/G2.jpg" alt="Event 2" class="w-full h-64 object-cover rounded-lg mx-2">
+                    </div>
+                    <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="200">
+                        <img src="images/G3.jpg" alt="Event 3" class="w-full h-64 object-cover rounded-lg mx-2">
+                    </div>
+                    <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="images/G4.jpg" alt="Event 4" class="w-full h-64 object-cover rounded-lg mx-2">
+                    </div>
+                    <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="images/G11.jpg" alt="Event 5" class="w-full h-64 object-cover rounded-lg mx-2">
+                    </div>
+                    <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="images/G6.jpg" alt="Event 6" class="w-full h-64 object-cover rounded-lg mx-2">
+                    </div>
+                    <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="images/G7.jpg" alt="Event 7" class="w-full h-64 object-cover rounded-lg mx-2">
+                    </div>
+                    <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="images/G8.jpg" alt="Event 8" class="w-full h-64 object-cover rounded-lg mx-2">
+                    </div>
+                    <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="images/G9.jpg" alt="Event 9" class="w-full h-64 object-cover rounded-lg mx-2">
+                    </div>
+                    <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="images/G10.jpg" alt="Event 10" class="w-full h-64 object-cover rounded-lg mx-2">
+                    </div>
+                    <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="images/G11.jpg" alt="Event 2" class="w-full h-64 object-cover rounded-lg mx-2">
+                    </div>
+                    <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="images/G12.jpg" alt="Event 2" class="w-full h-64 object-cover rounded-lg mx-2">
+                    </div>
+                    <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="images/G13.jpg" alt="Event 2" class="w-full h-64 object-cover rounded-lg mx-2">
+                    </div>
+                    <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="images/G14.jpg" alt="Event 2" class="w-full h-64 object-cover rounded-lg mx-2">
+                    </div>
+                    <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="images/G15.jpg" alt="Event 2" class="w-full h-64 object-cover rounded-lg mx-2">
+                    </div>
+                    <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="images/G16.jpg" alt="Event 2" class="w-full h-64 object-cover rounded-lg mx-2">
+                    </div>
+                    <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="images/G17.jpg" alt="Event 2" class="w-full h-64 object-cover rounded-lg mx-2">
+                    </div>
+                    <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="images/G18.jpg" alt="Event 2" class="w-full h-64 object-cover rounded-lg mx-2">
+                    </div>
+                    <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="images/G19.jpg" alt="Event 2" class="w-full h-64 object-cover rounded-lg mx-2">
+                    </div>
+                    <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="images/G20.jpg" alt="Event 2" class="w-full h-64 object-cover rounded-lg mx-2">
+                    </div>
+                    <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="images/G21.jpg" alt="Event 2" class="w-full h-64 object-cover rounded-lg mx-2">
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>    
+    <!-- Blog Section -->
+    <section id="blog" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">Latest Blogs</h2>
+            <div class="swiper blogSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <article class="blog-card" data-aos="fade-up">
+                            <img src="images/blog1.jpg" alt="Blog 1" class="w-full h-48 object-cover rounded-lg">
+                            <div class="p-6 text-center">
+                                <h3 class="text-xl font-bold mb-2">Commissioning of a borehole</h3>
+                                <p class="text-text/80 mb-4">Commissioning of a borehole at project kwantaresha community, Hayin ojo sabon gari LGA kaduna state, nigeria</p>
+                                <a href="#" class="text-primary hover:underline">Read More →</a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="swiper-slide">
+                        <article class="blog-card" data-aos="fade-up">
+                            <img src="images/blog2.jpg" alt="Blog 2" class="w-full h-48 object-cover rounded-lg">
+                            <div class="p-6 text-center">
+                                <h3 class="text-xl font-bold mb-2">Distribution of clothes to <b>350</b> peoples.</h3>
+                                <p class="text-text/80 mb-4">We have distributed clothes to 350 children in Yobe state, Nigeria.</p>
+                                <a href="#" class="text-primary hover:underline">Read More →</a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="swiper-slide">
+                        <article class="blog-card" data-aos="fade-up">
+                            <img src="images/bagoni.jpg" alt="Blog 3" class="w-full h-48 object-cover rounded-lg">
+                            <div class="p-6 text-center">
+                                <h3 class="text-xl font-bold mb-2">Commissioning of Masjid Bagoni</h3>
+                                <p class="text-text/80 mb-4">We have completed the upgrade and uucommissioning of Masjid Bagoni at Tsamiyan lilo community, Damaturu, Yobe state.</p>
+                                <a href="#" class="text-primary hover:underline">Read More →</a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="swiper-slide">
+                        <article class="blog-card" data-aos="fade-up">
+                            <img src="images/waqp.jpeg" alt="Blog 2" class="w-full h-48 object-cover rounded-lg">
+                            <div class="p-6 text-center">
+                                <h3 class="text-xl font-bold mb-2">Waqf Alqur’an Distribution</h3>
+                                <p class="text-text/80 mb-4">Waqf Alqur’an distribution to Masjids and Madarasahs in Nigeria by Muslim valley and Isah Chikaji Founations
+                                </p>
+                                <a href="#" class="text-primary hover:underline">Read More →</a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="swiper-slide">
+                        <article class="blog-card" data-aos="fade-up">
+                            <img src="images/blog2.jpg" alt="Blog 2" class="w-full h-48 object-cover rounded-lg">
+                            <div class="p-6 text-center">
+                                <h3 class="text-xl font-bold mb-2">Distribution of clothes to <b>350</b> peoples.</h3>
+                                <p class="text-text/80 mb-4">We have distributed clothes to 350 children in Yobe state, Nigeria.</p>
+                                <a href="#" class="text-primary hover:underline">Read More →</a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="swiper-slide">
+                        <article class="blog-card" data-aos="fade-up">
+                            <img src="images/blog2.jpg" alt="Blog 2" class="w-full h-48 object-cover rounded-lg">
+                            <div class="p-6 text-center">
+                                <h3 class="text-xl font-bold mb-2">Distribution of clothes to <b>350</b> peoples.</h3>
+                                <p class="text-text/80 mb-4">We have distributed clothes to 350 children in Yobe state, Nigeria.</p>
+                                <a href="#" class="text-primary hover:underline">Read More →</a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <!-- Swiper Navigation Buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CEO Section -->
+    <section id="ceo" class="py-20 bg-surface">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">Meet Our CEO</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="rounded-lg overflow-hidden shadow-lg" data-aos="fade-right">
+                    <img src="images/CEO.jpg" alt="CEO" class="w-full h-auto object-cover border-radius-50">
+                </div>
+                <div class="space-y-6" data-aos="fade-left">
+                    <h3 class="text-3xl font-bold text-center">Dr. Aliyu Isah Chikaji, PhD</h3>
+                    <p class="text-lg text-text/80 text-left">
+                        Dr. Aliyu Isah Chikaji is a visionary leader with decades of experience in community development and philanthropy. He founded the Isah Chikaji Foundation to address the pressing needs of underserved communities.
+                    </p>
+                    <p class="text-lg text-text/80 text-left">
+                        Under his leadership, the foundation has grown to impact thousands of lives, with a focus on education, healthcare, and economic empowerment. His dedication to creating sustainable change has earned him numerous accolades.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <!--Impact section-->
+    <section id="impact" class="py-20 bg-surface">
+        <div class="container mx-auto px-4 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Our Impact</h2>
+            <div class="grid md:grid-cols-4 gap-4 text-center">
+                <div class="impact-stat " data-aos="fade-up">
+                    <div class="impact-number">15K+</div>
+                    <p class="text-text/80">Lives Impacted</p>
+                </div>
+                <div class="impact-stat" data-aos="fade-up" data-aos-delay="100">
+                    <div class="impact-number">200+</div>
+                    <p class="text-gray-600">Projects completed</p>
+                </div>
+                <div class="impact-stat" data-aos="fade-up" data-aos-delay="200">
+                    <div class="impact-number">50+</div>
+                    <p class="text-gray-600">Communities Reached</p>
+                </div>
+                <div class="impact-stat" data-aos="fade-up" data-aos-delay="300">
+                    <div class="impact-number">90%</div>
+                    <p class="text-gray-600">Program Success Rate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+     <!--footer-->
+    <footer class="footer py-20 bg-gray-900 text-white">
+        <div class="container mx-auto px-6">
+            
+            <!-- Partners Section -->
+            <div class="footer-col text-center mb-12">
+                <h4 class="text-xl font-bold mb-4">Our Partners</h4>
+                <div class="flex justify-center gap-6">
+                    <a href="https://partner1.com" target="_blank">
+                        <img src="images/part1.jpeg" alt="Partner 1" class="w-50 h-auto rounded-lg hover:opacity-80">
+                    </a>
+                    <a href="https://partner2.com" target="_blank">
+                        <img src="images/part2.jpeg" alt="Partner 2" class="w-24 h-auto rounded-lg hover:opacity-80">
+                    </a>
+                </div>
+            </div>
+    <hr>
+    <br>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="footer-col">
+                    <img src="images/ICF.jpg" alt="Logo" class="h-16 w-16 mb-4 cover-object rounded-full">
+                    <p class="text-black-400 text-sm">Creating sustainable change through education, healthcare, and economic empowerment since 2023</p>
+                </div>
+    
+                <div class="footer-col">
+                    <h4 class="text-xl font-bold mb-4">Quick Links</h4>
+                    <div class="space-y-2">
+                        <a href="#home" class="footer-link block hover:text-primary">Home</a>
+                        <a href="#about" class="footer-link block hover:text-primary">About</a>
+                        <a href="#gallery" class="footer-link block hover:text-primary">Gallery</a>
+                        <a href="#blog" class="footer-link block hover:text-primary">Blog</a>
+                    </div>
+                </div>
+    
+                <div class="footer-col">
+                    <h4 class="text-xl font-bold mb-4">Contact</h4>
+                    <div class="space-y-2 text-sm">
+                        <p class="text-black-400">123 Foundation Street, Abuja</p>
+                        <p class="text-black-400">info@isahchikaji.org</p>
+                        <p class="text-black-400">Phone: 0803 808 1888</p>
+                    </div>
+                </div>
+    
+                <div class="footer-col">
+                    <h4 class="text-xl font-bold mb-4">Follow Us</h4>
+                    <div class="flex gap-4">
+                        <a href="https://www.facebook.com/profile.php?id=100071780662170" target="_blank" class="social-icon">
+                            <i class="fab fa-facebook text-2xl"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-twitter text-2xl"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-instagram text-2xl"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                        </a>
+                    </div>
+                    <div class="mt-6">
+                        <h4 class="text-lg font-bold mb-2">Newsletter</h4>
+                        <form class="flex gap-2">
+                            <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-2 rounded-lg bg-gray-700 text-white">
+                            <button class="btn-primary px-4 py-2 rounded-lg">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="mt-12 pt-8 border-t border-gray-700 text-center text-black-400 text-sm">
+                <p>&copy; 2025 Isah Chikaji Foundation. All rights reserved. | <a href="#" class="hover:text-primary">Privacy Policy</a> | <a href="#" class="hover:text-primary">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>        
+    <!-- Back to Top Button -->
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js">
+    document.addEventListener("DOMContentLoaded", function () {
+    // Initialize Gallery Swiper
+    new Swiper(".gallerySwiper", {
+        loop: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        slidesPerView: 1,
+        spaceBetween: 30,
+        breakpoints: {
+            640: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 }
+        }
+    });
+
+    new Swiper(".blogSwiper", {
+    loop: true,
+    navigation: {
+        nextEl: ".swiper-button-next", 
+        prevEl: ".swiper-button-prev"
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    slidesPerView: 1, // Default to 1 slide per view
+    spaceBetween: 20, // Adds 20px spacing between slides
+    breakpoints: {
+        640: { slidesPerView: 1, spaceBetween: 20 },
+        768: { slidesPerView: 2, spaceBetween: 20 },
+        1024: { slidesPerView: 3, spaceBetween: 20 }
+    }
+});
+
+
+    // Initialize AOS (Animate On Scroll)
+    AOS.init({ duration: 800, once: true });
+
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+        mobileMenuButton.innerHTML = mobileMenu.classList.contains('active') ? 
+            '<i class="fas fa-times text-2xl"></i>' : 
+            '<i class="fas fa-bars text-2xl"></i>';
+    });
+
+     // Animate numbers on scroll
+     const animateNumbers = () => {
+            document.querySelectorAll('.impact-stat').forEach(stat => {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const number = entry.target.querySelector('.impact-number');
+                            const finalValue = parseInt(number.innerText);
+                            let current = 0;
+                            
+                            const interval = setInterval(() => {
+                                current += Math.ceil(finalValue / 50);
+                                if (current >= finalValue) {
+                                    clearInterval(interval);
+                                    current = finalValue;
+                                }
+                                number.innerText = current + (number.innerText.includes('%') ? '%' : '+');
+                            }, 30);
+                            
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                });
+                observer.observe(stat);
+            });
+        };
+        animateNumbers();
+    // Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('theme-dark');
+        document.body.classList.toggle('theme-light');
+        themeToggle.querySelector('i').classList.togle('fa-moon');
+        themeToggle.querySelector('i').classList.toggle('fa-sun');
+    });
+
+    // Back to Top Button
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
+    });
+});
+    </script>
+</body>
+</html>-
