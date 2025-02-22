@@ -463,9 +463,10 @@
     mobileMenuButton.addEventListener('click', () => {
         mobileMenu.classList.toggle('hidden');
         mobileMenuButton.innerHTML = mobileMenu.classList.contains('hidden') ? 
-            '<i class="fas fa-times text-2xl"></i>' : 
-            '<i class="fas fa-bars text-2xl"></i>';
-    });
+             
+            '<i class="fas fa-bars text-2xl"></i>':
+            '<i class="fas fa-times text-2xl"></i>' ;
+    })
 
      // Animate numbers on scroll
      const animateNumbers = () => {
