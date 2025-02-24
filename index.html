@@ -34,6 +34,7 @@
                     </div>
                     <a href="#gallery" class="nav-link hover:text-primary transition-colors">Gallery</a>
                     <a href="#blog" class="nav-link hover:text-primary transition-colors">Blog</a>
+		    <a href="#impact" class="nav-link hover:text-primary transition-colors">Impact</a>
                     <a href="#contact" class="btn-primary px-6 py-2 rounded-full">Learn more</a>
                 </div>
     
@@ -62,11 +63,11 @@
         <a href="#impact" class="nav-link block text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Impact</a>
         <a href="#gallery" class="nav-link block text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Gallery</a>
         <a href="#blog" class="nav-link block text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Blog</a>
-        <
 
 <!-- Theme Toggle Button -->
 <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition">
-    <i id="theme-icon" class="fas fa-moon text-xl"></i>
+	<button id="mobile-menu-button" class="md:hidden text-gray-800 dark:text-white">
+    <i class="fas fa-bars text-2xl"></i>
 </button>
         </nav>
     </header>
@@ -396,7 +397,7 @@
     <div class="space-y-2 text-sm text-gray-700">
         <!-- Location (Clickable Google Maps Link) -->
         <div class="flex items-center space-x-2">
-            <i class="fas fa-map-marker-alt text-red-500 text-lg"></i>
+            <i class="fas fa-map-marker-alt text-2xl"></i>
             <a href="https://www.google.com/maps/search/?api=1&query=1+Chikaji,+Sabon+Gari,+Zaria,+Kaduna+State"
                target="_blank"
                class="hover:underline">
@@ -406,13 +407,13 @@
 
         <!-- Email -->
         <div class="flex items-center space-x-2">
-            <i class="fas fa-envelope text-blue-500 text-lg"></i>
+            <i class="fas fa-envelope text-2xl"></i>
             <a href="mailto:info@isahchikaji.org" class="hover:underline">info@isahchikaji.org</a>
         </div>
 
         <!-- Phone -->
         <div class="flex items-center space-x-2">
-            <i class="fas fa-phone-alt text-green-500 text-lg"></i>
+            <i class="fas fa-phone-alt text-2xl"></i>
             <a href="tel:+2348038081888" class="hover:underline">0803 808 1888</a>
         </div>
     </div>
@@ -452,48 +453,28 @@
     <!-- Back to Top Button -->
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-    document.addEventListener("DOMContentLoaded", function () {
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
     // Initialize Gallery Swiper
     new Swiper(".gallerySwiper", {
         loop: true,
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
+        autoplay: { delay: 3000, disableOnInteraction: false },
+        pagination: { el: ".swiper-pagination", clickable: true },
         slidesPerView: 1,
         spaceBetween: 30,
-        breakpoints: {
-            640: { slidesPerView: 1 },
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 }
-        }
+        breakpoints: { 640: { slidesPerView: 1 }, 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
     });
 
+    // Initialize Blog Swiper
     new Swiper(".blogSwiper", {
-    loop: true,
-    navigation: {
-        nextEl: ".swiper-button-next", 
-        prevEl: ".swiper-button-prev"
-    },
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-    slidesPerView: 1, // Default to 1 slide per view
-    spaceBetween: 20, // Adds 20px spacing between slides
-    breakpoints: {
-        640: { slidesPerView: 1, spaceBetween: 20 },
-        768: { slidesPerView: 2, spaceBetween: 20 },
-        1024: { slidesPerView: 3, spaceBetween: 20 }
-    }
-});
-
+        loop: true,
+        navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+        pagination: { el: ".swiper-pagination", clickable: true },
+        slidesPerView: 1,
+        spaceBetween: 20,
+        breakpoints: { 640: { slidesPerView: 1 }, 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+    });
 
     // Initialize AOS (Animate On Scroll)
     AOS.init({ duration: 800, once: true });
@@ -504,45 +485,64 @@
 
     mobileMenuButton.addEventListener('click', () => {
         mobileMenu.classList.toggle('hidden');
-        mobileMenuButton.innerHTML = mobileMenu.classList.contains('hidden') ? 
-            '<i class="fas fa-bars text-2xl"></i>':
-            '<i class="fas fa-times text-2xl"></i>' ;
-    })
+        mobileMenuButton.innerHTML = mobileMenu.classList.contains('hidden') ?
+            '<i class="fas fa-bars text-2xl"></i>' :
+            '<i class="fas fa-times text-2xl"></i>';
+    });
 
-     // Animate numbers on scroll
-     const animateNumbers = () => {
-	     document.querySelectorAll('.impact-stat').forEach(stat => {
-		     const observer = new IntersectionObserver((entries, observer) => {
-			     entries.forEach(entry => {
-				     if (entry.isIntersecting) {
-					     const number = entry.target.querySelector('.impact-number');
-					     const finalValue = parseInt(number.innerText);
-					     let current = 0;
-					     const interval = setInterval(() => {
-						     current += Math.ceil(finalValue / 50);
-						     if (current >= finalValue) {
-							     clearInterval(interval);
-							     current = finalValue;
-						     }
+    // Animate Numbers on Scroll
+    const animateNumbers = () => {
+        document.querySelectorAll('.impact-stat').forEach(stat => {
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const number = entry.target.querySelector('.impact-number');
+                        const finalValue = parseInt(number.innerText);
+                        let current = 0;
+                        const increment = Math.ceil(finalValue / 50);
 
-						     number.innerText = current + (number.innerText.includes('%') ? '%' : (entry.target === document.querySelector('.impact-stat:first-child') ? 'k+' : '+'));
-					     }, 30);
+                        const interval = setInterval(() => {
+                            current += increment;
+                            if (current >= finalValue) {
+                                clearInterval(interval);
+                                current = finalValue;
+                            }
+                            number.innerText = current + (number.innerText.includes('%') ? '%' : '+');
+                        }, 30);
 
-					     observer.unobserve(entry.target);
-				     }
-			     });
-		     });
-		     observer.observe(stat);
-	     });
-     };
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+            observer.observe(stat);
+        });
+    };
     animateNumbers();
-    // Theme Toggle
+
+    // Theme Toggle (Light/Dark Mode)
     const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = themeToggle.querySelector('i');
+    const root = document.documentElement;
+
+    function applyTheme(theme) {
+        if (theme === 'dark') {
+            root.classList.add('dark');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        } else {
+            root.classList.remove('dark');
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+        }
+        localStorage.setItem('theme', theme);
+    }
+
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    applyTheme(savedTheme);
+
     themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('theme-dark');
-        document.body.classList.toggle('theme-light');
-        themeToggle.querySelector('i').classList.togle('fa-moon');
-        themeToggle.querySelector('i').classList.toggle('fa-sun');
+        const newTheme = root.classList.contains('dark') ? 'light' : 'dark';
+        applyTheme(newTheme);
     });
 
     // Back to Top Button
@@ -555,6 +555,6 @@
         }
     });
 });
-    </script>
+</script>
 </body>
 </html>
