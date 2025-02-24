@@ -488,31 +488,31 @@
 
      // Animate numbers on scroll
      const animateNumbers = () => {
-            document.querySelectorAll('.impact-stat').forEach(stat => {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const number = entry.target.querySelector('.impact-number');
-                            const finalValue = parseInt(number.innerText);
-                            let current = 0;
-                            
-                            const interval = setInterval(() => {
-                                current += Math.ceil(finalValue / 50);
-                                if (current >= finalValue) {
-                                    clearInterval(interval);
-                                    current = finalValue;
-                                }
-                                number.innerText = current + (number.innerText.includes('%') ? '%' : '+' : 'k');
-                            }, 30);
-                            
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                });
-                observer.observe(stat);
-            });
-        };
-        animateNumbers();
+	     document.querySelectorAll('.impact-stat').forEach(stat => {
+		     const observer = new IntersectionObserver((entries, observer) => {
+			     entries.forEach(entry => {
+				     if (entry.isIntersecting) {
+					     const number = entry.target.querySelector('.impact-number');
+					     const finalValue = parseInt(number.innerText);
+					     let current = 0;
+					     const interval = setInterval(() => {
+						     current += Math.ceil(finalValue / 50);
+						     if (current >= finalValue) {
+							     clearInterval(interval);
+							     current = finalValue;
+						     }
+
+						     number.innerText = current + (number.innerText.includes('%') ? '%' : (entry.target === document.querySelector('.impact-stat:first-child') ? 'k+' : '+'));
+					     }, 30);
+
+					     observer.unobserve(entry.target);
+				     }
+			     });
+		     });
+		     observer.observe(stat);
+	     });
+     };
+    animateNumbers();
     // Theme Toggle
     const themeToggle = document.getElementById('theme-toggle');
     themeToggle.addEventListener('click', () => {
