@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="styles.css">
-      <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body class="theme-light font-sans">
     <!-- Header -->
@@ -34,42 +34,48 @@
                     </div>
                     <a href="#gallery" class="nav-link hover:text-primary transition-colors">Gallery</a>
                     <a href="#blog" class="nav-link hover:text-primary transition-colors">Blog</a>
-		    <a href="#impact" class="nav-link hover:text-primary transition-colors">Impact</a>
+                    <a href="#impact" class="nav-link hover:text-primary transition-colors">Impact</a>
                     <a href="#contact" class="btn-primary px-6 py-2 rounded-full">Learn more</a>
+                    <!-- Theme Toggle Button (Desktop) -->
+                    <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                        <i class="fas fa-moon"></i>
+                    </button>
                 </div>
-    
+
                 <!-- Mobile Menu Button -->
-<button id="mobile-menu-button" class="md:hidden text-gray-800 dark:text-white">
-    <i class="fas fa-bars text-2xl"></i>
-</button>
+                <button id="mobile-menu-button" class="md:hidden text-gray-800 dark:text-white">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
 
-<!-- Mobile Menu -->
-<div id="mobile-menu" class="hidden absolute top-full right-0 w-64 bg-white dark:bg-gray-900 shadow-lg rounded-bl-lg md:hidden transition-all duration-300">
-    <div class="p-4 space-y-4">
-        <a href="#home" class="nav-link block text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Home</a>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden absolute top-full right-0 w-64 bg-white dark:bg-gray-900 shadow-lg rounded-bl-lg md:hidden transition-all duration-300">
+            <div class="p-4 space-y-4">
+                <a href="#home" class="nav-link block text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Home</a>
 
-        <!-- Dropdown (About) -->
-        <div class="dropdown">
-            <button id="about-dropdown-btn" class="flex justify-between w-full text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
-                About <i class="fas fa-chevron-down"></i>
-            </button>
-            <div id="about-dropdown" class="hidden pl-4 space-y-2">
-                <a href="#mission" class="dropdown-link block text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary">Mission</a>
-                <a href="#vision" class="dropdown-link block text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary">Vision</a>
-                <a href="#ceo" class="dropdown-link block text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary">CEO</a>
+                <!-- Dropdown (About) -->
+                <div class="dropdown">
+                    <button id="about-dropdown-btn" class="flex justify-between w-full text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
+                        About <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div id="about-dropdown" class="hidden pl-4 space-y-2">
+                        <a href="#mission" class="dropdown-link block text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary">Mission</a>
+                        <a href="#vision" class="dropdown-link block text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary">Vision</a>
+                        <a href="#ceo" class="dropdown-link block text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary">CEO</a>
+                    </div>
+                </div>
+
+                <a href="#impact" class="nav-link block text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Impact</a>
+                <a href="#gallery" class="nav-link block text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Gallery</a>
+                <a href="#blog" class="nav-link block text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Blog</a>
+
+                <!-- Theme Toggle Button (Mobile) -->
+                <button id="mobile-theme-toggle" class="w-full p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition text-left">
+                    <i class="fas fa-moon"></i> Toggle Theme
+                </button>
             </div>
         </div>
-
-        <a href="#impact" class="nav-link block text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Impact</a>
-        <a href="#gallery" class="nav-link block text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Gallery</a>
-        <a href="#blog" class="nav-link block text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Blog</a>
-
-<!-- Theme Toggle Button -->
-<button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition">
-	<button id="mobile-menu-button" class="md:hidden text-gray-800 dark:text-white">
-    <i class="fas fa-bars text-2xl"></i>
-</button>
-        </nav>
     </header>
     <!-- Hero Section -->
     <section id="home" class="min-h-screen flex items-center pt-20">
@@ -537,24 +543,5 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem('theme', theme);
     }
 
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    applyTheme(savedTheme);
-
-    themeToggle.addEventListener('click', () => {
-        const newTheme = root.classList.contains('dark') ? 'light' : 'dark';
-        applyTheme(newTheme);
-    });
-
-    // Back to Top Button
-    const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            backToTop.classList.add('show');
-        } else {
-            backToTop.classList.remove('show');
-        }
-    });
-});
-</script>
 </body>
 </html>
