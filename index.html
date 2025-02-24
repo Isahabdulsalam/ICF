@@ -466,44 +466,69 @@ document.addEventListener("DOMContentLoaded", function () {
     new Swiper(".gallerySwiper", {
         loop: true,
         autoplay: { delay: 3000, disableOnInteraction: false },
-        pagination: { el: ".swiper-pagination", clickable: true },
         slidesPerView: 1,
         spaceBetween: 30,
-        breakpoints: { 640: { slidesPerView: 1 }, 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+        breakpoints: { 
+            640: { slidesPerView: 1 }, 
+            768: { slidesPerView: 2 }, 
+            1024: { slidesPerView: 3 } 
+        }
     });
 
     // Initialize Blog Swiper
     new Swiper(".blogSwiper", {
         loop: true,
-        navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
-        pagination: { el: ".swiper-pagination", clickable: true },
+        navigation: { 
+            nextEl: ".swiper-button-next", 
+            prevEl: ".swiper-button-prev" 
+        },
         slidesPerView: 1,
         spaceBetween: 20,
-        breakpoints: { 640: { slidesPerView: 1 }, 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+        breakpoints: { 
+            640: { slidesPerView: 1 }, 
+            768: { slidesPerView: 2 }, 
+            1024: { slidesPerView: 3 } 
+        }
     });
 
-    // Initialize AOS (Animate On Scroll)
-    AOS.init({ duration: 800, once: true });
+    // Initialize AOS
+    AOS.init({ 
+        duration: 800, 
+        once: true,
+        offset: 120,
+        easing: 'ease-in-out'
+    });
 
     // Mobile Menu Toggle
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
+    const aboutDropdownBtn = document.getElementById('about-dropdown-btn');
+    const aboutDropdown = document.getElementById('about-dropdown');
 
     mobileMenuButton.addEventListener('click', () => {
         mobileMenu.classList.toggle('hidden');
-        mobileMenuButton.innerHTML = mobileMenu.classList.contains('hidden') ?
-            '<i class="fas fa-bars text-2xl"></i>' :
-            '<i class="fas fa-times text-2xl"></i>';
+        mobileMenuButton.innerHTML = mobileMenu.classList.contains('hidden') 
+            ? '<i class="fas fa-bars text-2xl"></i>' 
+            : '<i class="fas fa-times text-2xl"></i>';
     });
 
-    // Animate Numbers on Scroll
+    // Mobile Dropdown Toggle
+    aboutDropdownBtn.addEventListener('click', () => {
+        aboutDropdown.classList.toggle('hidden');
+    });
+
+    // Number Animation
     const animateNumbers = () => {
         document.querySelectorAll('.impact-stat').forEach(stat => {
-            const observer = new IntersectionObserver((entries, observer) => {
+            const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const number = entry.target.querySelector('.impact-number');
-                        const finalValue = parseInt(number.innerText);
+                        const originalText = number.innerText;
+                        const finalValue = parseInt(originalText.replace(/[^0-9]/g, ''));
+                        const isPercentage = originalText.includes('%');
+                        const hasPlus = originalText.includes('+');
+                        
                         let current = 0;
                         const increment = Math.ceil(finalValue / 50);
 
@@ -513,7 +538,9 @@ document.addEventListener("DOMContentLoaded", function () {
                                 clearInterval(interval);
                                 current = finalValue;
                             }
-                            number.innerText = current + (number.innerText.includes('%') ? '%' : '+');
+                            number.innerText = current + 
+                                (isPercentage ? '%' : '') +
+                                (hasPlus ? '+' : '');
                         }, 30);
 
                         observer.unobserve(entry.target);
@@ -525,23 +552,64 @@ document.addEventListener("DOMContentLoaded", function () {
     };
     animateNumbers();
 
-    // Theme Toggle (Light/Dark Mode)
+    // Theme Toggle
     const themeToggle = document.getElementById('theme-toggle');
-    const themeIcon = themeToggle.querySelector('i');
+    const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+    const themeIcons = document.querySelectorAll('.theme-icon');
     const root = document.documentElement;
 
     function applyTheme(theme) {
         if (theme === 'dark') {
             root.classList.add('dark');
-            themeIcon.classList.remove('fa-moon');
-            themeIcon.classList.add('fa-sun');
+            themeIcons.forEach(icon => {
+                icon.classList.replace('fa-moon', 'fa-sun');
+            });
         } else {
             root.classList.remove('dark');
-            themeIcon.classList.remove('fa-sun');
-            themeIcon.classList.add('fa-moon');
+            themeIcons.forEach(icon => {
+                icon.classList.replace('fa-sun', 'fa-moon');
+            });
         }
         localStorage.setItem('theme', theme);
     }
 
+    // Initialize theme
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    applyTheme(savedTheme);
+
+    // Theme toggle handlers
+    [themeToggle, mobileThemeToggle].forEach(button => {
+        button.addEventListener('click', () => {
+            const newTheme = root.classList.contains('dark') ? 'light' : 'dark';
+            applyTheme(newTheme);
+        });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!mobileMenu.contains(e.target) && 
+            !mobileMenuButton.contains(e.target) &&
+            !mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+            mobileMenuButton.innerHTML = '<i class="fas fa-bars text-2xl"></i>';
+        }
+    });
+
+    // Back to Top Button
+    const backToTop = document.createElement('div');
+    backToTop.id = 'backToTop';
+    backToTop.className = 'fixed bottom-8 right-8 p-3 bg-primary text-white rounded-full cursor-pointer hidden';
+    backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    document.body.appendChild(backToTop);
+
+    window.addEventListener('scroll', () => {
+        backToTop.classList.toggle('show', window.scrollY > 300);
+    });
+
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+});
+</script>
 </body>
 </html>
