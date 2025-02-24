@@ -502,7 +502,7 @@
                                     clearInterval(interval);
                                     current = finalValue;
                                 }
-                                number.innerText = current + (number.innerText.includes('%') ? '%' : '+');
+                                number.innerText = current + (number.innerText.includes('%') ? '%' : '+' : k);
                             }, 30);
                             
                             observer.unobserve(entry.target);
