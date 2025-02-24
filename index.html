@@ -77,8 +77,7 @@
                     Join us in creating sustainable change through education, healthcare, and economic empowerment initiatives.
                 </p>
                 <div class="flex gap-4 flex items-center justify-center">
-                    <a href="#donate" class="btn-primary px-8 py-3 rounded-full">Donate Now</a>
-                    <a href="#about" class="btn-secondary px-8 py-3 rounded-full">Learn More</a>
+                    <a href="#about" class="btn-secondary px-8 py-3 w-full rounded-full">Learn More</a>
                 </div>
             </div>
         </div>
@@ -503,7 +502,7 @@
                                     clearInterval(interval);
                                     current = finalValue;
                                 }
-                                number.innerText = current + (number.innerText.includes('%') ? 'k' : '%' : '+');
+                                number.innerText = current + (number.innerText.includes('%') ? '%' : '+');
                             }, 30);
                             
                             observer.unobserve(entry.target);
