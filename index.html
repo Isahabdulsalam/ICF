@@ -43,7 +43,7 @@
                 </button>
             </div>
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden absolute top-full right-0 w-64 shadow-lg rounded-bl-lg md:hidden">
+            <div id="mobile-menu" class="hidden absolute top-full bg-theme-light right-0 w-64 shadow-lg rounded-bl-lg md:hidden">
                 <div class="p-4 space-y-4">
                     <a href="#home" class="nav-link hover:text-primary transition-colors">Home</a>
                     <div class="dropdown">
@@ -333,9 +333,9 @@
         <div class="container mx-auto px-4 lg:px-8">
             <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Our Impact</h2>
             <div class="grid md:grid-cols-4 gap-4 text-center">
-                <div class="impact-stat " data-aos="fade-up">
-                    <div class="impact-number text-4xl font-bold text-primary mb-2">15K+</div>
-                    <p class="text-text/80">Lives Impacted</p>
+                <div class="impact-stat" data-aos="fade-up">
+                    <div class="impact-number">15k+</div>
+                    <p class="text-gray-600">Lives Impacted</p>
                 </div>
                 <div class="impact-stat" data-aos="fade-up" data-aos-delay="100">
                     <div class="impact-number">200+</div>
@@ -503,7 +503,7 @@
                                     clearInterval(interval);
                                     current = finalValue;
                                 }
-                                number.innerText = current + (number.innerText.includes('%') ? '%' : '+');
+                                number.innerText = current + (number.innerText.includes('%') ? 'k' :'%' : '+');
                             }, 30);
                             
                             observer.unobserve(entry.target);
