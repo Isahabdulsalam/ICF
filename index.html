@@ -484,8 +484,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const mobileMenu = document.getElementById('mobile-menu');
 
     mobileMenuButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-        mobileMenuButton.innerHTML = mobileMenu.classList.contains('hidden') ?
+        mobileMenu.classList.toggle('active');
+        mobileMenuButton.innerHTML = mobileMenu.classList.contains('active') ?
             '<i class="fas fa-bars text-2xl"></i>' :
             '<i class="fas fa-times text-2xl"></i>';
     });
