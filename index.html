@@ -510,38 +510,44 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Animate Numbers on Scroll
     const animateNumbers = () => {
-        const stats = document.querySelectorAll('.impact-stat');
-        if (stats.length === 0) return;
-
-        stats.forEach(stat => {
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const number = entry.target.querySelector('.impact-number');
-                        if (!number) return;
-
-                        const finalValue = parseInt(number.innerText.replace(/\D/g, ''));
-                        let current = 0;
-                        const increment = Math.ceil(finalValue / 50);
-
-                        const interval = setInterval(() => {
-                            current += increment;
-                            if (current >= finalValue) {
-                                clearInterval(interval);
-                                current = finalValue;
-                            }
-                            number.innerText = current + (number.innerText.includes('%') ? '%' : '+');
-                        }, 30);
-
-                        observer.unobserve(entry.target);
-                    }
-                });
-            });
-            observer.observe(stat);
-        });
-    };
-    animateNumbers();
-
+         document.querySelectorAll('.impact-stat').forEach(stat => {
+             const observer = new IntersectionObserver((entries) => {
+                 entries.forEach(entry => {
+                     if (entry.isIntersecting) {
+                         const number = entry.target.querySelector('.impact-number');
+                         const originalText = number.innerText;
+                         const hasK = originalText.includes('k');
+                         const hasPlus = originalText.includes('+');
+                         const hasPercent = originalText.includes('%');
+                         const numericValue = parseFloat(originalText.replace(/[^0-9.]/g, ''));
+                         const finalValue = hasK ? numericValue * 1000 : numericValue;
+ 
+                         let current = 0;
+                         const increment = Math.ceil(finalValue / 50);
+ 
+                         const interval = setInterval(() => {
+                             current += increment;
+                             if (current >= finalValue) {
+                                 clearInterval(interval);
+                                 current = finalValue;
+                             }
+                             number.innerText = 
+                                 (hasK ? (current/1000).toFixed(0) + 'k' : current) + 
+                                 (hasPlus ? '+' : '') +
+                                 (hasPercent ? '%' : '');
+                         }, 30);
+ 
+                         observer.unobserve(entry.target);
+                     }
+                 });
+             }, {
+                 threshold: 0.1,
+                 rootMargin: '0px 0px -50px 0px'
+             });
+             observer.observe(stat);
+         });
+     };
+     animateNumbers();
     // Theme Toggle (Light/Dark Mode)
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = themeToggle?.querySelector('i');
