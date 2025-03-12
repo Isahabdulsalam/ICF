@@ -550,30 +550,38 @@ document.addEventListener("DOMContentLoaded", function () {
      };
      animateNumbers();
     // Theme Toggle (Light/Dark Mode)
-    const themeToggle = document.getElementById('theme-toggle');
-    const themeIcon = themeToggle?.querySelector('i');
+    document.addEventListener("DOMContentLoaded", function () {
+    const themeToggle = document.getElementById("theme-toggle");
+    const themeIcon = themeToggle?.querySelector("i");
     const root = document.documentElement;
 
     function applyTheme(theme) {
-        if (theme === 'dark') {
-            root.classList.add('dark');
-            themeIcon?.classList.replace('fa-moon', 'fa-sun');
+        if (theme === "dark") {
+            root.classList.add("dark");
+            if (themeIcon) {
+                themeIcon.classList.add("fa-sun");
+                themeIcon.classList.remove("fa-moon");
+            }
         } else {
-            root.classList.remove('dark');
-            themeIcon?.classList.replace('fa-sun', 'fa-moon');
+            root.classList.remove("dark");
+            if (themeIcon) {
+                themeIcon.classList.add("fa-moon");
+                themeIcon.classList.remove("fa-sun");
+            }
         }
-        localStorage.setItem('theme', theme);
+        localStorage.setItem("theme", theme);
     }
 
     if (themeToggle) {
-        const savedTheme = localStorage.getItem('theme') || 'light';
+        const savedTheme = localStorage.getItem("theme") || "light";
         applyTheme(savedTheme);
 
-        themeToggle.addEventListener('click', () => {
-            const newTheme = root.classList.contains('dark') ? 'light' : 'dark';
+        themeToggle.addEventListener("click", () => {
+            const newTheme = root.classList.contains("dark") ? "light" : "dark";
             applyTheme(newTheme);
         });
     }
+});
 
     // Back to Top Button
     const backToTop = document.getElementById('backToTop');
