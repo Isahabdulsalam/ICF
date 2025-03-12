@@ -478,6 +478,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Initialize AOS (Animate On Scroll)
     AOS.init({ duration: 800, once: true });
 
+	document.getElementById("about-dropdown-btn").addEventListener("click", function () {
+        document.getElementById("about-dropdown").classList.toggle("hidden");
+    });
+
     // Mobile Menu Toggle
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
