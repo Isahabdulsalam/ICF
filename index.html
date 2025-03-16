@@ -497,7 +497,6 @@
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     // Initialize Gallery Swiper
-<<<<<<< HEAD
     new Swiper(".gallerySwiper", {
         loop: true,
         autoplay: { delay: 3000, disableOnInteraction: false },
@@ -533,7 +532,6 @@ document.addEventListener("DOMContentLoaded", function () {
         offset: 120,
         easing: 'ease-in-out'
     });
-=======
     if (document.querySelector(".gallerySwiper")) {
         new Swiper(".gallerySwiper", {
             loop: true,
@@ -571,7 +569,6 @@ document.addEventListener("DOMContentLoaded", function () {
             aboutDropdown.classList.toggle("hidden");
         });
     }
->>>>>>> aca9257a6d8d675f9319594460d3d8c2061ed38d
 
     // Mobile Menu Toggle
     const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -579,14 +576,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const aboutDropdownBtn = document.getElementById('about-dropdown-btn');
     const aboutDropdown = document.getElementById('about-dropdown');
 
-<<<<<<< HEAD
     mobileMenuButton.addEventListener('click', () => {
         mobileMenu.classList.toggle('active');
         mobileMenuButton.innerHTML = mobileMenu.classList.contains('active') 
             ? '<i class="fas fa-bars text-2xl"></i>' 
             : '<i class="fas fa-times text-2xl"></i>';
     });
-=======
     if (mobileMenuButton && mobileMenu) {
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
@@ -596,7 +591,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 '<i class="fas fa-bars text-2xl"></i>';
         });
     }
->>>>>>> aca9257a6d8d675f9319594460d3d8c2061ed38d
 
     // Mobile Dropdown Toggle
     aboutDropdownBtn.addEventListener('click', () => {
@@ -605,7 +599,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Number Animation
     const animateNumbers = () => {
-<<<<<<< HEAD
         document.querySelectorAll('.impact-stat').forEach(stat => {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -656,7 +649,6 @@ document.addEventListener("DOMContentLoaded", function () {
             themeIcons.forEach(icon => {
                 icon.classList.replace('fa-sun', 'fa-moon');
             });
-=======
          document.querySelectorAll('.impact-stat').forEach(stat => {
              const observer = new IntersectionObserver((entries) => {
                  entries.forEach(entry => {
@@ -714,12 +706,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 themeIcon.classList.add("fa-moon");
                 themeIcon.classList.remove("fa-sun");
             }
->>>>>>> aca9257a6d8d675f9319594460d3d8c2061ed38d
         }
         localStorage.setItem("theme", theme);
     }
-
-<<<<<<< HEAD
     // Initialize theme
     const savedTheme = localStorage.getItem('theme') || 'light';
     applyTheme(savedTheme);
@@ -756,7 +745,6 @@ document.addEventListener("DOMContentLoaded", function () {
     backToTop.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-=======
     if (themeToggle) {
         const savedTheme = localStorage.getItem("theme") || "light";
         applyTheme(savedTheme);
@@ -775,7 +763,6 @@ document.addEventListener("DOMContentLoaded", function () {
             backToTop.classList.toggle('show', window.scrollY > 300);
         });
     }
->>>>>>> aca9257a6d8d675f9319594460d3d8c2061ed38d
 });
 	</script>
 </body>
