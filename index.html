@@ -41,7 +41,10 @@
                         <i class="fas fa-moon"></i>
                     </button>
 		    <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition">                       <i class="fas fa-moon text-2xl"></i>                    </button>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7361719a6651b385ded299e6ce13ea719a1dc74d
                 </div>
 
                 <!-- Mobile Menu Button -->
@@ -80,7 +83,6 @@
                 </button>
             </div>
         </div>
-=======
         <!-- Dropdown (About) -->
         <div class="dropdown">
             <button id="about-dropdown-btn" class="flex justify-between w-full text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
@@ -530,6 +532,7 @@
             }
         });
 
+<<<<<<< HEAD
         // Initialize AOS
         AOS.init({ 
             duration: 800, 
@@ -537,6 +540,15 @@
             offset: 120,
             easing: 'ease-in-out'
         });
+=======
+    // Initialize AOS
+    AOS.init({ 
+        duration: 800, 
+        once: true,
+        offset: 120,
+        easing: 'ease-in-out'
+    });
+>>>>>>> 7361719a6651b385ded299e6ce13ea719a1dc74d
     if (document.querySelector(".gallerySwiper")) {
         new Swiper(".gallerySwiper", {
             loop: true,
@@ -581,9 +593,15 @@
         const aboutDropdownBtn = document.getElementById('about-dropdown-btn');
         const aboutDropdown = document.getElementById('about-dropdown');
 
+<<<<<<< HEAD
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('active');
             mobileMenuButton.innerHTML = mobileMenu.classList.contains('active') 
+=======
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+        mobileMenuButton.innerHTML = mobileMenu.classList.contains('active') 
+>>>>>>> 7361719a6651b385ded299e6ce13ea719a1dc74d
             ? '<i class="fas fa-bars text-2xl"></i>' 
             : '<i class="fas fa-times text-2xl"></i>';
     });
@@ -654,6 +672,7 @@
             themeIcons.forEach(icon => {
                 icon.classList.replace('fa-sun', 'fa-moon');
             });
+<<<<<<< HEAD
         });
 
         // Number Animation
@@ -682,6 +701,31 @@
 
                                 number.innerText = 
                                     (hasK ? (current/1000).toFixed(0) + 'k' : current) + 
+=======
+         document.querySelectorAll('.impact-stat').forEach(stat => {
+             const observer = new IntersectionObserver((entries) => {
+                 entries.forEach(entry => {
+                     if (entry.isIntersecting) {
+                         const number = entry.target.querySelector('.impact-number');
+                         const originalText = number.innerText;
+                         const hasK = originalText.includes('k');
+                         const hasPlus = originalText.includes('+');
+                         const hasPercent = originalText.includes('%');
+                         const numericValue = parseFloat(originalText.replace(/[^0-9.]/g, ''));
+                         const finalValue = hasK ? numericValue * 1000 : numericValue;
+ 
+                         let current = 0;
+                         const increment = Math.ceil(finalValue / 50);
+ 
+                         const interval = setInterval(() => {
+                             current += increment;
+                             if (current >= finalValue) {
+                                 clearInterval(interval);
+                                 current = finalValue;
+                             }
+                             number.innerText = 
+                                 (hasK ? (current/1000).toFixed(0) + 'k' : current) + 
+>>>>>>> 7361719a6651b385ded299e6ce13ea719a1dc74d
                                  (hasPlus ? '+' : '') +
                                     (hasPercent ? '%' : '');
                             }, 30);
@@ -752,9 +796,15 @@
             backToTop.classList.toggle('show', window.scrollY > 300);
         });
 
+<<<<<<< HEAD
         backToTop.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+=======
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+>>>>>>> 7361719a6651b385ded299e6ce13ea719a1dc74d
     if (themeToggle) {
         const savedTheme = localStorage.getItem("theme") || "light";
         applyTheme(savedTheme);
@@ -773,7 +823,12 @@
             backToTop.classList.toggle('show', window.scrollY > 300);
         });
     }
+<<<<<<< HEAD
     });
     </script>
+=======
+});
+	</script>
+>>>>>>> 7361719a6651b385ded299e6ce13ea719a1dc74d
 </body>
 </html>
