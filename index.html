@@ -9,14 +9,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="styles.css">
-      <link rel="icon" href="favicon.ico" type="image/x-icon">
+      <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body class="theme-light font-sans">
     <!-- Header -->
     <header class="fixed w-full z-50 glassmorphism">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="container mx-auto px-4 lg:px-8 py-4 flex justify-between items-center">
-                <div class="flex items-center gap-3">
+            <div class="flex items-center gap-3">
+                
                     <img src="images/ICF.jpg" alt="Logo" class="h-12 w-12 rounded-full">
                     <span class="text-2xl font-bold text-primary">Isah Chikaji Foundation</span>
                 </div>
@@ -34,35 +34,41 @@
                     </div>
                     <a href="#gallery" class="nav-link hover:text-primary transition-colors">Gallery</a>
                     <a href="#blog" class="nav-link hover:text-primary transition-colors">Blog</a>
+		    <a href="#impact" class="nav-link hover:text-primary transition-colors">Impact</a>
                     <a href="#contact" class="btn-primary px-6 py-2 rounded-full">Learn more</a>
+		    <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition">                       <i class="fas fa-moon text-2xl"></i>                    </button>
                 </div>
     
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button" class="md:hidden text-primary">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
+<button id="mobile-menu-button" class="md:hidden text-gray-800 dark:text-white">
+    <i class="fas fa-bars items-center text-3xl"></i>
+</button>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="hidden absolute top-full right-0 w-64 bg-white dark:bg-gray-900 shadow-lg rounded-bl-lg md:hidden transition-all duration-300">
+    <div class="p-4 space-y-4">
+        <a href="#home" class="nav-link block text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Home</a>
+
+        <!-- Dropdown (About) -->
+        <div class="dropdown">
+            <button id="about-dropdown-btn" class="flex justify-between w-full text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
+                About <i class="fas fa-chevron-down"></i>
+	    </button>
+		<div id="about-dropdown" class="hidden pl-4 space-y-2">
+			<a href="#mission" class="dropdown-link block text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary">Mission</a>
+			<a href="#vision" class="dropdown-link block text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary">Vision</a>
+			<a href="#ceo" class="dropdown-link block text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary">CEO</a>
             </div>
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="mobile-menu md:hidden absolute top-full right-0 w-64 bg-white shadow-lg rounded-bl-lg">
-                <div class="p-4 space-y-4">
-                    <a href="#home" class="nav-link hover:text-primary transition-colors">Home</a>
-                    <div class="dropdown">
-                        <a href="#about" class="nav-link hover:text-primary transition-colors">About</a>
-                        <div class="dropdown-content">
-                            <a href="#mission" class="dropdown-link">Mission</a>
-                            <a href="#vision" class="dropdown-link">Vision</a>
-                            <a href="#ceo" class="dropdown-link">CEO</a>
-                        </div>
-                    </div>
-                    <a href="#impact" class="nav-link hover:text-primary hover:text-primary transition-colors">Impact</a>
-                    <a href="#gallery" class="nav-link hover:text-primary transition-colors">Gallery</a>
-                    <a href="#blog" class="nav-link hover:text-primary transition-colors">Blog</a>
-                    <a href="#contact" class="btn-primary px-6 py-2 rounded-full">Learn more</a>
-                </div>
-            </div>
-            <button id="theme-toggle" class="p-2 rounded-lg hover:bg-surface">
-                <i class="fas fa-moon text-xl"></i>
-            </button>
+        </div>
+
+        <a href="#impact" class="nav-link block text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Impact</a>
+        <a href="#gallery" class="nav-link block text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Gallery</a>
+        <a href="#blog" class="nav-link block text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Blog</a>
+
+<!-- Theme Toggle Button -->
+<button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+    <i class="fas fa-moon text-center text-2xl"></i>
+</button>
         </nav>
     </header>
     <!-- Hero Section -->
@@ -77,8 +83,7 @@
                     Join us in creating sustainable change through education, healthcare, and economic empowerment initiatives.
                 </p>
                 <div class="flex gap-4 flex items-center justify-center">
-                    <a href="#donate" class="btn-primary px-8 py-3 rounded-full">Donate Now</a>
-                    <a href="#about" class="btn-secondary px-8 py-3 rounded-full">Learn More</a>
+                    <a href="#about" class="btn-secondary px-8 py-3 w-full rounded-full">Learn More</a>
                 </div>
             </div>
         </div>
@@ -163,40 +168,39 @@
                         <img src="images/G10.jpg" alt="Event 10" class="w-full h-64 object-cover rounded-lg mx-2">
                     </div>
                     <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="100">
-                        <img src="images/G11.jpg" alt="Event 2" class="w-full h-64 object-cover rounded-lg mx-2">
+                        <img src="images/G11.jpg" alt="Event 11" class="w-full h-64 object-cover rounded-lg mx-2">
                     </div>
                     <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="100">
-                        <img src="images/G12.jpg" alt="Event 2" class="w-full h-64 object-cover rounded-lg mx-2">
+                        <img src="images/G12.jpg" alt="Event 12" class="w-full h-64 object-cover rounded-lg mx-2">
                     </div>
                     <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="100">
-                        <img src="images/G13.jpg" alt="Event 2" class="w-full h-64 object-cover rounded-lg mx-2">
+                        <img src="images/G13.jpg" alt="Event 13" class="w-full h-64 object-cover rounded-lg mx-2">
                     </div>
                     <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="100">
-                        <img src="images/G14.jpg" alt="Event 2" class="w-full h-64 object-cover rounded-lg mx-2">
+                        <img src="images/G14.jpg" alt="Event 14" class="w-full h-64 object-cover rounded-lg mx-2">
                     </div>
                     <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="100">
-                        <img src="images/G15.jpg" alt="Event 2" class="w-full h-64 object-cover rounded-lg mx-2">
+                        <img src="images/G15.jpg" alt="Event 15" class="w-full h-64 object-cover rounded-lg mx-2">
                     </div>
                     <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="100">
-                        <img src="images/G16.jpg" alt="Event 2" class="w-full h-64 object-cover rounded-lg mx-2">
+                        <img src="images/G16.jpg" alt="Event 16" class="w-full h-64 object-cover rounded-lg mx-2">
                     </div>
                     <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="100">
-                        <img src="images/G17.jpg" alt="Event 2" class="w-full h-64 object-cover rounded-lg mx-2">
+                        <img src="images/G17.jpg" alt="Event 17" class="w-full h-64 object-cover rounded-lg mx-2">
                     </div>
                     <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="100">
-                        <img src="images/G18.jpg" alt="Event 2" class="w-full h-64 object-cover rounded-lg mx-2">
+                        <img src="images/G18.jpg" alt="Event 18" class="w-full h-64 object-cover rounded-lg mx-2">
                     </div>
                     <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="100">
-                        <img src="images/G19.jpg" alt="Event 2" class="w-full h-64 object-cover rounded-lg mx-2">
+                        <img src="images/G19.jpg" alt="Event 19" class="w-full h-64 object-cover rounded-lg mx-2">
                     </div>
                     <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="100">
-                        <img src="images/G20.jpg" alt="Event 2" class="w-full h-64 object-cover rounded-lg mx-2">
+                        <img src="images/G20.jpg" alt="Event 20" class="w-full h-64 object-cover rounded-lg mx-2">
                     </div>
                     <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="100">
-                        <img src="images/G21.jpg" alt="Event 2" class="w-full h-64 object-cover rounded-lg mx-2">
+                        <img src="images/G21.jpg" alt="Event 21" class="w-full h-64 object-cover rounded-lg mx-2">
                     </div>
                 </div>
-                <div class="swiper-pagination"></div>
             </div>
         </div>
     </section>    
@@ -212,7 +216,7 @@
                             <div class="p-6 text-center">
                                 <h3 class="text-xl font-bold mb-2">Commissioning of a borehole</h3>
                                 <p class="text-text/80 mb-4">Commissioning of a borehole at project kwantaresha community, Hayin ojo sabon gari LGA kaduna state, nigeria</p>
-                                <a href="#" class="text-primary hover:underline">Read More →</a>
+                                <a href="https://www.facebook.com/100071780662170/posts/370386528697366/?mibextid=rS40aB7S9Ucbxw6v" class="text-primary hover:underline">Read More →</a>
                             </div>
                         </article>
                     </div>
@@ -249,10 +253,20 @@
                     </div>
                     <div class="swiper-slide">
                         <article class="blog-card" data-aos="fade-up">
-                            <img src="images/blog2.jpg" alt="Blog 2" class="w-full h-48 object-cover rounded-lg">
+                            <img src="images/riced.jpg" alt="Blog 2" class="w-full h-48 object-cover rounded-lg">
                             <div class="p-6 text-center">
-                                <h3 class="text-xl font-bold mb-2">Distribution of clothes to <b>350</b> peoples.</h3>
-                                <p class="text-text/80 mb-4">We have distributed clothes to 350 children in Yobe state, Nigeria.</p>
+				    <h3 class="text-xl font-bold mb-2">Distribution of <b>10kg</b> of rice</h3>
+                                <p class="text-text/80 mb-4">We have distributed 10kg of rice to 105 families in Damaturu, Yobe state, Nigeria.</p>
+                                <a href="#" class="text-primary hover:underline">Read More →</a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="swiper-slide">
+                        <article class="blog-card" data-aos="fade-up">
+                            <img src="images/waqp.jpg" alt="Blog 2" class="w-full h-48 object-cover rounded-lg">
+                            <div class="p-6 text-center">
+                                <h3 class="text-xl font-bold mb-2">QURBAN PROJECT 2019.</h3>
+                                <p class="text-text/80 mb-4">Qurban is one of our project facilitated by Isah Chikaji Foundation and muslim valley in Nigeria. Qurban involve sacrificing animals and distributing them to the less privileged during the festive Eid El-kabir period.</p>
                                 <a href="#" class="text-primary hover:underline">Read More →</a>
                             </div>
                         </article>
@@ -261,8 +275,31 @@
                         <article class="blog-card" data-aos="fade-up">
                             <img src="images/blog2.jpg" alt="Blog 2" class="w-full h-48 object-cover rounded-lg">
                             <div class="p-6 text-center">
-                                <h3 class="text-xl font-bold mb-2">Distribution of clothes to <b>350</b> peoples.</h3>
-                                <p class="text-text/80 mb-4">We have distributed clothes to 350 children in Yobe state, Nigeria.</p>
+				    <h3 class="text-xl font-bold mb-2">HAND PUMP BOREHOLE (WAQAF PROJECT) PHASE 2</h3>
+                                <p class="text-text/80 mb-4">We commissioned a hand pump borehole at unguwar sarki, jaja community on then 25<sub>th</sub> of Sptember, 2022</p>
+                                <a href="#" class="text-primary hover:underline">Read More →</a>
+                            </div>
+                        </article>
+                    </div>
+
+                    
+                    <div class="swiper-slide">
+                        <article class="blog-card" data-aos="fade-up">
+                            <img src="images/riced.jpg" alt="Blog 2" class="w-full h-48 object-cover rounded-lg">
+                            <div class="p-6 text-center">
+				    <h3 class="text-xl font-bold mb-2">DISTRIBUTION OF CLOTHES</h3>
+                                <p class="text-text/80 mb-4">We distributed clothes to 350 IDPs and vulnerable children in Mairi, Bulumkutu, Suleimanti and Ngomari communitiesof Maiduguri, Borno state</p>
+                                <a href="#" class="text-primary hover:underline">Read More →</a>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <article class="blog-card" data-aos="fade-up">
+                            <img src="images/t2.jpg" alt="Blog 2" class="w-full h-48 object-cover rounded-lg">
+                            <div class="p-6 text-center">
+				    <h3 class="text-xl font-bold mb-2">DISTRIBUTION OF HAND TRICYCLES</h3>
+                                <p class="text-text/80 mb-4">We distributed <b>50</b> hand tricycles to people with disabilities in kaduna, nigeria.</p>
                                 <a href="#" class="text-primary hover:underline">Read More →</a>
                             </div>
                         </article>
@@ -274,7 +311,6 @@
             </div>
         </div>
     </section>
-
     <!-- CEO Section -->
     <section id="ceo" class="py-20 bg-surface">
         <div class="container mx-auto px-6">
@@ -285,12 +321,24 @@
                 </div>
                 <div class="space-y-6" data-aos="fade-left">
                     <h3 class="text-3xl font-bold text-center">Dr. Aliyu Isah Chikaji, PhD</h3>
-                    <p class="text-lg text-text/80 text-left">
+                    <p class="text-lg text-text/80 text-center">
                         Dr. Aliyu Isah Chikaji is a visionary leader with decades of experience in community development and philanthropy. He founded the Isah Chikaji Foundation to address the pressing needs of underserved communities.
                     </p>
-                    <p class="text-lg text-text/80 text-left">
+                    <p class="text-lg text-text/80 text-center">
                         Under his leadership, the foundation has grown to impact thousands of lives, with a focus on education, healthcare, and economic empowerment. His dedication to creating sustainable change has earned him numerous accolades.
                     </p>
+                
+                <div class="flex gap-4 flex items-center justify-center">
+                    <a href="https://www.facebook.com/aliyu.isahchikaji" target="_blank" class="social-icon">
+                        <i class="fab fa-facebook text-3xl"></i>
+                    </a>
+                    <a href="https://x.com/chikajee?t=8qXcsqFcych_RAm_EJRzkg&s=09" class="social-icon">
+                        <i class="fab fa-twitter text-3xl"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/aliyu-chikaji-896a1888?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-icon">
+                        <i class="fab fa-linkedin text-3xl"></i>
+                    </a>
+                </div>
                 </div>
             </div>
         </div>
@@ -301,9 +349,9 @@
         <div class="container mx-auto px-4 lg:px-8">
             <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Our Impact</h2>
             <div class="grid md:grid-cols-4 gap-4 text-center">
-                <div class="impact-stat " data-aos="fade-up">
-                    <div class="impact-number">15K+</div>
-                    <p class="text-text/80">Lives Impacted</p>
+                <div class="impact-stat" data-aos="fade-up">
+                    <div class="impact-number">15k+</div>
+                    <p class="text-gray-600">Lives Impacted</p>
                 </div>
                 <div class="impact-stat" data-aos="fade-up" data-aos-delay="100">
                     <div class="impact-number">200+</div>
@@ -351,17 +399,36 @@
                         <a href="#about" class="footer-link block hover:text-primary">About</a>
                         <a href="#gallery" class="footer-link block hover:text-primary">Gallery</a>
                         <a href="#blog" class="footer-link block hover:text-primary">Blog</a>
+                        <a href="#impact" class="footer-link block hover:text-primary">Impact</a>
                     </div>
                 </div>
-    
-                <div class="footer-col">
-                    <h4 class="text-xl font-bold mb-4">Contact</h4>
-                    <div class="space-y-2 text-sm">
-                        <p class="text-black-400">123 Foundation Street, Abuja</p>
-                        <p class="text-black-400">info@isahchikaji.org</p>
-                        <p class="text-black-400">Phone: 0803 808 1888</p>
-                    </div>
-                </div>
+
+		<div class="footer-col">
+    <h4 class="text-xl font-bold mb-4">Contact</h4>
+    <div class="space-y-2 text-sm text-gray-700">
+        <!-- Location (Clickable Google Maps Link) -->
+        <div class="flex items-center space-x-2">
+            <i class="fas fa-map-marker-alt text-2xl"></i>
+            <a href="https://www.google.com/maps/search/?api=1&query=1+Chikaji,+Sabon+Gari,+Zaria,+Kaduna+State"
+               target="_blank"
+               class="hover:underline">
+               1 Chikaji, Sabon Gari, Zaria, Kaduna State
+            </a>
+        </div>
+
+        <!-- Email -->
+        <div class="flex items-center space-x-2">
+            <i class="fas fa-envelope text-2xl"></i>
+            <a href="mailto:info@isahchikaji.org" class="hover:underline">info@isahchikaji.org</a>
+        </div>
+
+        <!-- Phone -->
+        <div class="flex items-center space-x-2">
+            <i class="fas fa-phone-alt text-2xl"></i>
+            <a href="tel:+2348038081888" class="hover:underline">0803 808 1888</a>
+        </div>
+    </div>
+</div>
     
                 <div class="footer-col">
                     <h4 class="text-xl font-bold mb-4">Follow Us</h4>
@@ -373,6 +440,7 @@
                             <i class="fab fa-twitter text-2xl"></i>
                         </a>
                         <a href="#" class="social-icon" target="_blank">
+                        <a href="#" class="social-icon">
                             <i class="fab fa-instagram text-2xl"></i>
                         </a>
                         <a href="#" class="social-icon" target="_blank">
@@ -397,9 +465,9 @@
     <!-- Back to Top Button -->
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-    document.addEventListener("DOMContentLoaded", function () {
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
     // Initialize Gallery Swiper
     new Swiper(".gallerySwiper", {
         loop: true,
@@ -436,70 +504,140 @@
         640: { slidesPerView: 1, spaceBetween: 20 },
         768: { slidesPerView: 2, spaceBetween: 20 },
         1024: { slidesPerView: 3, spaceBetween: 20 }
+    if (document.querySelector(".gallerySwiper")) {
+        new Swiper(".gallerySwiper", {
+            loop: true,
+            autoplay: { delay: 3000, disableOnInteraction: false },
+            pagination: { el: ".swiper-pagination", clickable: true },
+            slidesPerView: 1,
+            spaceBetween: 30,
+            breakpoints: { 640: { slidesPerView: 1 }, 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+        });
     }
-});
 
+    // Initialize Blog Swiper
+    if (document.querySelector(".blogSwiper")) {
+        new Swiper(".blogSwiper", {
+            loop: true,
+            navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+            pagination: { el: ".swiper-pagination", clickable: true },
+            slidesPerView: 1,
+            spaceBetween: 20,
+            breakpoints: { 640: { slidesPerView: 1 }, 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+        });
+    }
 
     // Initialize AOS (Animate On Scroll)
-    AOS.init({ duration: 800, once: true });
+    if (window.AOS) {
+        AOS.init({ duration: 800, once: true });
+    }
+
+    // About Dropdown Toggle
+    const aboutDropdownBtn = document.getElementById("about-dropdown-btn");
+    const aboutDropdown = document.getElementById("about-dropdown");
+
+    if (aboutDropdownBtn && aboutDropdown) {
+        aboutDropdownBtn.addEventListener("click", function () {
+            aboutDropdown.classList.toggle("hidden");
+        });
+    }
 
     // Mobile Menu Toggle
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
 
-    mobileMenuButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('active');
-        mobileMenuButton.innerHTML = mobileMenu.classList.contains('active') ? 
-            '<i class="fas fa-times text-2xl"></i>' : 
-            '<i class="fas fa-bars text-2xl"></i>';
-    });
+    if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            mobileMenuButton.innerHTML = isOpen ?
+                '<i class="fas fa-times text-2xl"></i>' :
+                '<i class="fas fa-bars text-2xl"></i>';
+        });
+    }
 
-     // Animate numbers on scroll
-     const animateNumbers = () => {
-            document.querySelectorAll('.impact-stat').forEach(stat => {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const number = entry.target.querySelector('.impact-number');
-                            const finalValue = parseInt(number.innerText);
-                            let current = 0;
-                            
-                            const interval = setInterval(() => {
-                                current += Math.ceil(finalValue / 50);
-                                if (current >= finalValue) {
-                                    clearInterval(interval);
-                                    current = finalValue;
-                                }
-                                number.innerText = current + (number.innerText.includes('%') ? '%' : '+');
-                            }, 30);
-                            
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                });
-                observer.observe(stat);
-            });
-        };
-        animateNumbers();
-    // Theme Toggle
-    const themeToggle = document.getElementById('theme-toggle');
-    themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('theme-dark');
-        document.body.classList.toggle('theme-light');
-        themeToggle.querySelector('i').classList.togle('fa-moon');
-        themeToggle.querySelector('i').classList.toggle('fa-sun');
-    });
+    // Animate Numbers on Scroll
+    const animateNumbers = () => {
+         document.querySelectorAll('.impact-stat').forEach(stat => {
+             const observer = new IntersectionObserver((entries) => {
+                 entries.forEach(entry => {
+                     if (entry.isIntersecting) {
+                         const number = entry.target.querySelector('.impact-number');
+                         const originalText = number.innerText;
+                         const hasK = originalText.includes('k');
+                         const hasPlus = originalText.includes('+');
+                         const hasPercent = originalText.includes('%');
+                         const numericValue = parseFloat(originalText.replace(/[^0-9.]/g, ''));
+                         const finalValue = hasK ? numericValue * 1000 : numericValue;
+ 
+                         let current = 0;
+                         const increment = Math.ceil(finalValue / 50);
+ 
+                         const interval = setInterval(() => {
+                             current += increment;
+                             if (current >= finalValue) {
+                                 clearInterval(interval);
+                                 current = finalValue;
+                             }
+                             number.innerText = 
+                                 (hasK ? (current/1000).toFixed(0) + 'k' : current) + 
+                                 (hasPlus ? '+' : '') +
+                                 (hasPercent ? '%' : '');
+                         }, 30);
+ 
+                         observer.unobserve(entry.target);
+                     }
+                 });
+             }, {
+                 threshold: 0.1,
+                 rootMargin: '0px 0px -50px 0px'
+             });
+             observer.observe(stat);
+         });
+     };
+     animateNumbers();
+    // Theme Toggle (Light/Dark Mode)
+    document.addEventListener("DOMContentLoaded", function () {
+    const themeToggle = document.getElementById("theme-toggle");
+    const themeIcon = themeToggle?.querySelector("i");
+    const root = document.documentElement;
+
+    function applyTheme(theme) {
+        if (theme === "dark") {
+            root.classList.add("dark");
+            if (themeIcon) {
+                themeIcon.classList.add("fa-sun");
+                themeIcon.classList.remove("fa-moon");
+            }
+        } else {
+            root.classList.remove("dark");
+            if (themeIcon) {
+                themeIcon.classList.add("fa-moon");
+                themeIcon.classList.remove("fa-sun");
+            }
+        }
+        localStorage.setItem("theme", theme);
+    }
+
+    if (themeToggle) {
+        const savedTheme = localStorage.getItem("theme") || "light";
+        applyTheme(savedTheme);
+
+        themeToggle.addEventListener("click", () => {
+            const newTheme = root.classList.contains("dark") ? "light" : "dark";
+            applyTheme(newTheme);
+        });
+    }
+});
 
     // Back to Top Button
     const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            backToTop.classList.add('show');
-        } else {
-            backToTop.classList.remove('show');
-        }
-    });
+    if (backToTop) {
+        window.addEventListener('scroll', () => {
+            backToTop.classList.toggle('show', window.scrollY > 300);
+        });
+    }
 });
-    </script>
+	</script>
 </body>
-</html>-
+</html>

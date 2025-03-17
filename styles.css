@@ -6,14 +6,14 @@
     --light: 248 250 252; /* Slate-50 */
 }
 
-.theme-dark {
+[data-theme="dark"] {
     --text: 248 250 252;
     --bg: 15 23 42;
     --surface: 30 41 59;
     --border: 51 65 85;
 }
 
-.theme-light {
+[data-theme="light"] {
     --text: 15 23 42;
     --bg: 248 250 252;
     --surface: 255 255 255;
@@ -27,6 +27,17 @@ body {
     scroll-behavior: smooth;
 }
 
+#mobile-menu {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease-in-out;
+}
+#mobile-menu.active{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
 .btn-primary {
     background-color: rgb(var(--primary));
     color: white;
@@ -80,7 +91,12 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
 }
-
+.gallery-item img{
+    width: 100%;
+    height: 300px;
+    object-kit: cover;
+    border-radius: 12px;
+}
 .gallery-item {
     overflow: hidden;
     border-radius: 12px;
@@ -200,13 +216,70 @@ body {
     background: rgb(var(--text)) !important;
     opacity: 0.5 !important;
 }
+/* Mobile-first media queries */
+@media (max-width: 767px) {
+  .nav-link {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .dropdown-content {
+    width: 100%;
+    position: static;
+    box-shadow: none;
+  }
+
+  .impact-number {
+    font-size: 2rem;
+  }
+}
+
+/* Tablet styles */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .blog-card {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Desktop adjustments */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
 
 .swiper-pagination-bullet-active {
     background: rgb(var(--primary)) !important;
     opacity: 1 !important;
+}
+.swiper-slide {
+    height: auto !important;
 }
 .impact-number {
     font-size: 3rem;
     font-weight: 700;
     transition: all 0.5s ease;
 }
+<<<<<<< HEAD
+
+@media (min-width: 768px) {
+    .impact-number {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .text-5xl {
+        font-size: 2.5rem;
+    }
+    .text-7xl {
+        font-size: 3rem;
+    }
+}
+=======
+>>>>>>> aca9257a6d8d675f9319594460d3d8c2061ed38d
