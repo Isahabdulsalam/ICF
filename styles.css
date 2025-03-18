@@ -33,9 +33,15 @@ body {
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
-    transition: all 0.2s ease-in-out;
+    transition: all 0.3s ease;
+    display: block !important;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    z-index: 1000;
 }
-#mobile-menu.active{
+
+#mobile-menu.active {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);

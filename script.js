@@ -21,35 +21,8 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const aboutDropdownBtn = document.getElementById('about-dropdown-btn');
-    const aboutDropdown = document.getElementById('about-dropdown');
-
-    mobileMenuButton.addEventListener('click', () => {
-        mobileMenu.classList.toogle('hidden');
-        mobileMenuButton.innerHTML = mobileMenu.classList.contains('hidden')
-            ? '<i class="fas fa-bars text-2xl"></i>'
-            : '<i class="fas fa-times text-2xl"></i>';
-    });
-
-    aboutDropdownBtn.addEventListener('click', () => {
-        aboutDropdown.classList.toogle('hidden');
-    });
-
-    // close mobile menu when clicking outside 
-
-    document.addEventListener('click', (e) => {
-        if (!mobileMenu.contains(e.target) &&
-            !mobileMenuButton.contains(e.target) &&
-            !mobileMenu.classList.contains('hidden')) {
-            mobileMenu.classList.add('hidden');
-            mobileMenuButton.innerHTML = '<i class="fas fa-bars text-2xl"></i>';
-        }
-    });
-
     // Mobile Menu
-    /** const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
 
     function toggleMobileMenu() {
@@ -70,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
-**/
+
     // Swiper Sliders
     if (document.querySelector(".gallerySwiper")) {
         new Swiper(".gallerySwiper", {
