@@ -206,6 +206,11 @@ body {
     z-index: 1000;
 }
 
+.dropdown-content.active {
+    display: block;
+}
+
+
 .dropdown:hover .dropdown-content {
     display: block;
 }
@@ -273,7 +278,6 @@ body {
     font-weight: 700;
     transition: all 0.5s ease;
 }
-<<<<<<< HEAD
 
 @media (min-width: 768px) {
     .impact-number {
@@ -289,5 +293,9 @@ body {
         font-size: 3rem;
     }
 }
-=======
->>>>>>> aca9257a6d8d675f9319594460d3d8c2061ed38d
+
+#about-dropdown {
+    position: static;
+    box-shadow: none;
+    border: none;
+}
