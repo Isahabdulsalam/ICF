@@ -1,40 +1,25 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Theme Toggle
-    document.getElementById('mobile-theme-toggle')
-    ];
-
-    function updateThemeIcons(theme) {
-        themeToggles.forEach(toggle => {
-            if (!toggle) return;
-            const icon = toggle.querySelector('i');
-            if (icon) {
-                icon.className = theme === 'dark' 
-                    ? 'fas fa-sun' 
-                    : 'fas fa-moon';
-            }
-        });
-    }
-
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = themeToggle?.querySelector('i');
+    
     function applyTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
-        updateThemeIcons(theme);
+        if(themeIcon) {
+            themeIcon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
     }
 
-    // Initialize theme
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    applyTheme(savedTheme);
-
-    // Add event listeners to all toggles
-    themeToggles.forEach(toggle => {
-        if (!toggle) return;
-        toggle.addEventListener('click', () => {
-            const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' 
-                ? 'light' 
-                : 'dark';
+    if(themeToggle) {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        applyTheme(savedTheme);
+        
+        themeToggle.addEventListener('click', () => {
+            const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
             applyTheme(newTheme);
         });
-    });
+    }
 
     // Mobile Menu
     const mobileMenuButton = document.getElementById('mobile-menu-button');
