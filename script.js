@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
         aboutDropdown.classList.toogle('hidden');
     });
 
-    // close mobile menu when  clicking outside 
+    // close mobile menu when clicking outside 
 
     document.addEventListener('click', (e) => {
         if (!mobileMenu.contains(e.target) &&
@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", function() {
             mobileMenuButton.innerHTML = '<i class="fas fa-bars text-2xl"></i>';
         }
     });
+
     // Mobile Menu
     /** const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
