@@ -44,6 +44,41 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+	// Add this to your existing JavaScript
+function setupDropdowns() {
+    // Desktop dropdown
+    const desktopAbout = document.querySelector('.desktop .dropdown');
+    const desktopDropdown = document.querySelector('.desktop .dropdown-content');
+
+    if(desktopAbout && desktopDropdown) {
+        desktopAbout.addEventListener('click', (e) => {
+            e.stopPropagation();
+            desktopDropdown.classList.toggle('active');
+        });
+    }
+
+    // Mobile dropdown
+    const mobileAboutBtn = document.getElementById('about-dropdown-btn');
+    const mobileDropdown = document.getElementById('about-dropdown');
+
+    if(mobileAboutBtn && mobileDropdown) {
+        mobileAboutBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            mobileDropdown.classList.toggle('active');
+        });
+    }
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', () => {
+        [desktopDropdown, mobileDropdown].forEach(dropdown => {
+            dropdown?.classList.remove('active');
+        });
+    });
+}
+
+// Add this to your DOMContentLoaded callback
+setupDropdowns();
+
     // Swiper Sliders
     if (document.querySelector(".gallerySwiper")) {
         new Swiper(".gallerySwiper", {
