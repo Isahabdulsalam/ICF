@@ -45,26 +45,29 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Swiper Sliders
-    const initSwiper = (selector, config) => {
-        if(document.querySelector(selector)) {
-            new Swiper(selector, {
-                loop: true,
-                autoplay: { delay: 3000, disableOnInteraction: false },
-                ...config
-            });
-        }
-    };
+    if (document.querySelector(".gallerySwiper")) {
+        new Swiper(".gallerySwiper", {
+            loop: true,
+            autoplay: { delay: 3000, disableOnInteraction: false },
+            slidesPerView: 1,
+            pagination: { el: ".swiper-pagination", clickable: true},
+            spaceBetween: 30,
+            breakpoints: { 640: { slidesPerView: 1 }, 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3} }
+        });
+    }
 
-    initSwiper('.gallerySwiper', {
-        slidesPerView: 1,
-        breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
-    });
+    if (document.querySelector(".blogSwiper")) {
+        new Swiper(".blogSwiper", {
+            loop: true,
+            autoplay: { delay: 3000, disableOnInteraction: false },
+            slidesPerView: 1,
+            pagination: { el: ".swiper-pagination", clickable: true},
+            spaceBetween: 30,
+            breakpoints: { 640: { slidesPerView: 1 }, 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3} },
+            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
 
-    initSwiper('.blogSwiper', {
-        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-        slidesPerView: 1,
-        breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
-    });
+        });
+    }
 
     // AOS Animation
     if(window.AOS) {
