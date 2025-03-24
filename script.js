@@ -107,6 +107,15 @@ setupDropdowns();
         AOS.init({ duration: 800, once: true, offset: 120, easing: 'ease-in-out' });
     }
 
+const aboutDropdownBtn = document.getElementById("about-dropdown-btn");
+     const aboutDropdown = document.getElementById("about-dropdown");
+
+     if (aboutDropdownBtn && aboutDropdown) {
+         aboutDropdownBtn.addEventListener("click", function () {
+             aboutDropdown.classList.toggle("hidden");
+         });
+     }
+
     // Number Animation
     const animateNumbers = () => {
         document.querySelectorAll('.impact-stat').forEach(stat => {
